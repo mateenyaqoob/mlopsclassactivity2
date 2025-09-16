@@ -76,16 +76,16 @@ Returns model version in prediction response
 
 Students must submit:
 
-Modified train.py, app.py, and Dockerfiles
+1. Modified train.py, app.py, and Dockerfiles
 
-Airflow DAG (ml_pipeline_versioned.py)
+2. Airflow DAG (ml_pipeline_versioned.py)
 
-Screenshots of:
+3. Screenshots of:
 
-DockerHub with versioned images
+    a. DockerHub with versioned images
 
-Airflow DAG run logs
+    b. Airflow DAG run logs
 
-API predictions showing model version
+    c. API predictions showing model version
 
 Rollback demonstration
