@@ -15,3 +15,7 @@ Automate retraining using Apache Airflow
 Push images to DockerHub (or private registry)
 
 Add basic monitoring & rollback mechanisms
+
+# Versioned ML Pipeline
+
+![Versioned ML Pipeline](Actv2img.png)
