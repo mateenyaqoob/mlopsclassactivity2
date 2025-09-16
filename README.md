@@ -88,4 +88,4 @@ Students must submit:
 
     c. API predictions showing model version
 
-Rollback demonstration
+    d. Rollback demonstration
