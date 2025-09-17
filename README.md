@@ -6,36 +6,36 @@ This activity builds on mlopsclassactivity1 to implement a production-like MLOps
 
 Students will:
 
-Use Docker to containerize training & serving
+    1. Use Docker to containerize training & serving
 
-Apply model versioning (v1, v2, …)
+    2. Apply model versioning (v1, v2, …)
 
-Automate retraining using Apache Airflow
+    3. Automate retraining using Apache Airflow
 
-Push images to DockerHub (or private registry)
+    4. Push images to DockerHub (or private registry)
 
-Add basic monitoring & rollback mechanisms
+    5. Add basic monitoring & rollback mechanisms
 
 # Versioned ML Pipeline
 
 ![Versioned ML Pipeline](Actv2img.png)
 
 
-# Train a Versioned Model
+# 1. Train a Versioned Model
 python train.py v2 data/iris.csv data/new_data.csv
 Saves model as model_v2.pkl
 
-# Build & Push Docker Images
+# 2. Build & Push Docker Images
 docker build -f Dockerfile.train -t <dockerhub-username>/ml-train:v2 .
 docker push <dockerhub-username>/ml-train:v2
 
 docker build -f Dockerfile.serve -t <dockerhub-username>/ml-api:v2 .
 docker push <dockerhub-username>/ml-api:v2
 
-# Run Serving Container
+# 3. Run Serving Container
 docker run -p 8000:8000 -e MODEL_PATH=model_v2.pkl <dockerhub-username>/ml-api:v2
 
-# Test API Endpoint
+# 4. Test API Endpoint
 curl -X POST "http://localhost:8000/predict" \
     -H "Content-Type: application/json" \
     -d '{"features": [5.1, 3.5, 1.4, 0.2]}'
@@ -45,7 +45,7 @@ Example response:
 
 {"prediction": 0, "version": "model_v2.pkl"}
 
-# Airflow DAG
+# 5. Airflow DAG
 
 Start Airflow:
 
@@ -66,7 +66,7 @@ Deploy container
 
 Rollback if accuracy is worse
 
-# Monitoring
+# 6. Monitoring
 
 API logs request latency & errors
 
